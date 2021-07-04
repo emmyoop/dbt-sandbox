@@ -1,0 +1,6 @@
+oracle.env
+postgres.env
+external.env
+
+/postgresdata
+/oradata

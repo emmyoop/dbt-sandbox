@@ -1,0 +1,20 @@
+version: "3.5"
+services:
+
+  dbt:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - ../env/common.env
+      - ../env/DB_ENV_FILE
+    volumes:
+      - ..:/usr/app
+      - ../profiles.yml:/root/.dbt/profiles.yml
+    working_dir: /usr/app
+    ports:
+      - "8080:8080"
+
+networks:
+  default:
+    name: dbt-net

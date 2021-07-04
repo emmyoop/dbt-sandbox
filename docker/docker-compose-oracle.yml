@@ -1,0 +1,17 @@
+version: "3.5"
+services:
+
+  database:
+
+    image: oracle:19.3.0-ee
+    env_file:
+      - ../env/oracle.env
+    volumes:
+        - ../oradata:/opt/oracle/oradata
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+
+networks:
+  default:
+    name: dbt-net
